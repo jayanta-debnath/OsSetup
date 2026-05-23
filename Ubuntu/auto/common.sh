@@ -19,6 +19,12 @@ if ! grep -q "export PS1=" ~/.bashrc; then
 fi
 
 ####################################################
+# install common tools
+####################################################
+sudo apt install -y vim meld
+
+
+####################################################
 # install python
 ####################################################
 (
@@ -81,6 +87,8 @@ fi
     SDK_DIR="$HOME/Tools/android-sdk"
     TOOLS_ZIP="commandlinetools-linux.zip"
     SDK_URL="https://dl.google.com/android/repository/commandlinetools-linux-11076708_latest.zip"
+
+    sudo apt install -y android-tools-adb android-tools-fastboot
 
     echo "[*] Installing Android SDK..."
     sudo apt install -y unzip curl openjdk-17-jdk
@@ -152,7 +160,7 @@ EOF
 )
 
 ####################################################
-# setup Scripts from OsSetup repo
+# my custom automation scripts 
 ####################################################
 (
     mkdir -p $HOME/GitRepos
@@ -170,7 +178,3 @@ EOF
     deactivate
 )
 
-####################################################
-# install other common tools
-####################################################
-sudo apt install -y vim

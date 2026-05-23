@@ -1,11 +1,5 @@
 #!/bin/bash
 
-###########################
-# install standard packages
-###########################
-sudo apt update
-sudo apt install -y vlc usb-creator-gtk kdiff3 dolphin-plugins libreoffice
-
 ###############
 # timesync fix
 ###############
@@ -25,6 +19,11 @@ sudo timedatectl set-timezone Asia/Kolkata
     sudo update-grub
 )
 
+####################################################
+# install common tools
+####################################################
+sudo apt install -y vlc dolphin-plugins usb-creator-gtk libreoffice
+
 # install vscode
 (
     sudo apt install -y wget gpg apt-transport-https software-properties-common &&
@@ -35,12 +34,6 @@ https://packages.microsoft.com/repos/code stable main" \
     sudo apt update &&
     sudo apt install -y code
 )
-
-# detect android phone
-sudo apt install -y android-tools-adb android-tools-fastboot
-
-# media player
-sudo apt install -y vlc
 
 # docker
 (
@@ -61,9 +54,6 @@ sudo apt install -y vlc
     sudo groupadd docker || true &&
     sudo usermod -aG docker $USER
 )
-
-# kdiff3
-sudo apt install -y kdiff3 dolphin-plugins
 
 # input remapper - for mouse button customization
 ###########################
@@ -122,9 +112,6 @@ X-GNOME-Autostart-enabled=true
 EOF
     echo "Input Remapper autostart entry created at $AUTOSTART_DIR/input-remapper-autoload.desktop"
 )
-
-# other packages
-sudo apt install -y libreoffice
 
 ####################################
 # CopyQ - clipboard manager
