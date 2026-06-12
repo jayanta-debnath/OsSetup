@@ -69,6 +69,11 @@ if [ ! -d "$FLUTTER_DIR" ]; then
             echo "export PATH=\$PATH:\$HOME/Tools/flutter/bin" >> ~/.bashrc
         fi
 
+        # install firebase cli
+        sudo npm install -g firebase-tools
+        dart pub global activate flutterfire_cli
+        export PATH="$PATH":"$HOME/.pub-cache/bin"
+
         # Run flutter doctor to download Dart SDK and other dependencies
         flutter doctor
 
