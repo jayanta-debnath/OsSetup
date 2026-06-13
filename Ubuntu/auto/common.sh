@@ -4,6 +4,7 @@
 # initial steps
 ####################################################
 
+sudo timedatectl set-timezone Asia/Kolkata
 sudo apt update && sudo apt upgrade -y
 
 # git configure
