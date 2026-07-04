@@ -19,22 +19,22 @@ sudo timedatectl set-timezone Asia/Kolkata
     sudo update-grub
 )
 
-####################################################
-# install common tools
-####################################################
-sudo apt install -y vlc dolphin-plugins usb-creator-gtk libreoffice
-
-# install VSCodium
+# install vscode
 (
     sudo apt install -y wget gpg apt-transport-https software-properties-common &&
-    wget -qO- https://gitlab.com/paulcarroty/vscodium-deb-rpm-repo/raw/master/pub.gpg \
-        | sudo gpg --dearmor -o /usr/share/keyrings/vscodium-archive-keyring.gpg &&
-    echo "deb [signed-by=/usr/share/keyrings/vscodium-archive-keyring.gpg] \
-https://download.vscodium.com/debs vscodium main" \
-        | sudo tee /etc/apt/sources.list.d/vscodium.list > /dev/null &&
+    wget -qO- https://packages.microsoft.com/keys/microsoft.asc | sudo gpg --dearmor -o /usr/share/keyrings/packages.microsoft.gpg &&
+    echo "deb [arch=amd64 signed-by=/usr/share/keyrings/packages.microsoft.gpg] \
+https://packages.microsoft.com/repos/code stable main" \
+| sudo tee /etc/apt/sources.list.d/vscode.list > /dev/null &&
     sudo apt update &&
-    sudo apt install -y codium
+    sudo apt install -y code
 )
+
+# detect android phone
+sudo apt install -y android-tools-adb android-tools-fastboot
+
+# media player
+sudo apt install -y vlc
 
 # docker
 (
@@ -55,6 +55,9 @@ https://download.vscodium.com/debs vscodium main" \
     sudo groupadd docker || true &&
     sudo usermod -aG docker $USER
 )
+
+# kdiff3
+sudo apt install -y dolphin-plugins
 
 # input remapper - for mouse button customization
 ###########################
@@ -113,6 +116,9 @@ X-GNOME-Autostart-enabled=true
 EOF
     echo "Input Remapper autostart entry created at $AUTOSTART_DIR/input-remapper-autoload.desktop"
 )
+
+# other packages
+sudo apt install -y libreoffice
 
 ####################################
 # CopyQ - clipboard manager

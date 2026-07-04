@@ -1,0 +1,14 @@
+[Desktop Entry]
+Type=Application
+Version=1.0
+
+Name=ComfyUI
+Comment=Launch ComfyUI
+
+Exec=/home/jayanta/GitRepos/OsSetup/Scripts/start-comfyui.sh
+Icon=/home/jayanta/GitRepos/OsSetup/Scripts/Icons/comfyui-light.png
+
+Terminal=true
+StartupNotify=true
+
+Categories=Graphics;Development;
